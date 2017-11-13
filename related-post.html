@@ -1,0 +1,16 @@
+<style type="text/css">
+#related-posts {background:#fff;font-size:16px;margin:0;padding:20px;}
+#related-posts h3 {text-align:left;font-size:140px;color:#666;margin:0;padding:0;}
+</style>
+
+<b:if cond='data:blog.pageType == &quot;item&quot;'> 
+<b:if cond="data:post.labels"> 
+<b:loop index="x" values="data:post.labels" var="label"> <b:if cond="data:x==0"> 
+<div id="related-posts">
+<h3>
+Anime Lainnya</h3>
+<amp-iframe expr:src="&quot;https://cdn.rawgit.com/MuhAkram/Blog/master/related-post.html?url=www.boruchigo.cf&amp;colortitle=000000&amp;colordesc=000000&amp;back=ffffff&amp;item=both&amp;style=thumbnail&amp;label=&quot; + data:label.name" frameborder="0" height="420" layout="fixed-height" sandbox="allow-scripts allow-same-origin allow-modals allow-popups"> </amp-iframe> </div>
+</b:if></b:loop>
+<div class="clear">
+</div>
+</b:if></b:if>
