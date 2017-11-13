@@ -1,11 +1,33 @@
 <style type="text/css">
-#related-posts {background:#fff;font-size:16px;margin:0;padding:20px;}
-#related-posts h3 {text-align:left;font-size:140px;color:#666;margin:0;padding:0;}
+<!--Related Posts with thumbnails Scripts and Styles Start-->
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<style type='text/css'>
+#related-posts{float:left;width:auto;}
+#related-posts a{border-right: 1px dotted #eaeaea;}
+#related-posts a:hover{background: #EEEEEE;}
+#related-posts h2{margin-top: 10px;background:none;font:18px Oswald;padding:3px;color:#999999; text-transform:uppercase;}
+#related-posts .related_img {margin:5px;border:2px solid #f2f2f2;object-fit: cover;width:110px;height:100px;transition:all 300ms ease-in-out;-webkit-transition:all 300ms ease-in-out;-moz-transition:all 300ms ease-in-out;-o-transition:all 300ms ease-in-out;-ms-transition:all 300ms ease-in-out;-webkit-border-radius: 5px;  -moz-border-radius: 5px; border-radius: 5px; }
+#related-title {color:#666;text-align:center;padding: 0px 5px 10px;font-size:12px;width:110px; height: 40px;}
+#related-posts .related_img:hover{border:2px solid #E8E8E8;opacity:.7;filter:alpha(opacity=70);-moz-opacity:.7;-khtml-opacity:.7}</style>
+<script type='text/javascript' src='http://helplogger.googlecode.com/svn/trunk/relatedposts.js' />
+</b:if>
+<!--Related Posts with thumbnails Scripts and Styles End-->
 </style>
 
-<div id="related-posts">
-<h3>
-Anime Lainnya</h3>
-<amp-iframe expr:src="&quot;https://cdn.rawgit.com/MuhAkram/Blog/master/related-post.html?url=www.boruchigo.cf&amp;colortitle=000000&amp;colordesc=000000&amp;back=ffffff&amp;item=both&amp;style=thumbnail&amp;label=&quot; + data:label.name" frameborder="0" height="420" layout="fixed-height" sandbox="allow-scripts allow-same-origin allow-modals allow-popups"> </amp-iframe> </div>
-<div class="clear">
+<<!-- Related Posts with Thumbnails Code Start-->
+<b:if cond='data:blog.pageType == &quot;item&quot;'>
+<div id='related-posts'>
+<b:loop values='data:post.labels' var='label'>
+<b:if cond='data:label.isLast != &quot;true&quot;'>
+</b:if>
+<script expr:src='&quot;www.boruchigo.cf/feeds/posts/default/-/&quot; + data:label.name + &quot;?alt=json-in-script&amp;callback=related_results_labels_thumbs&amp;max-results=6&quot;' type='text/javascript'/></b:loop>
+<script type='text/javascript'>
+var currentposturl=&quot;<data:post.url/>&quot;;
+var maxresults=6;
+var relatedpoststitle=&quot;<b>Related Posts:</b>&quot;;
+removeRelatedDuplicates_thumbs();
+printRelatedLabels_thumbs();
+</script>
 </div>
+</b:if>
+<!-- Related Posts with Thumbnails Code End-->
